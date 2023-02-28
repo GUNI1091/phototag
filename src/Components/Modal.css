@@ -70,7 +70,8 @@
 
 .modal_search_taglist_style {
   margin: 10px;
-  width: 500px;
+  width: 90vw;
+  max-width: 500px;
   height: 100px;
   overflow-x: hidden;
   overflow-y: auto;

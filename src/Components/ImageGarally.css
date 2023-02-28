@@ -75,7 +75,12 @@
   overflow-y: hidden;
   height: 40px;
   padding: 5px 10px;
-  width: 500px;
+  width: 60vw;
+  max-width: 500px;
+}
+
+.search_label {
+  white-space: nowrap;
 }
 
 .search-tag-list button {

@@ -21,10 +21,17 @@ const Home = () => {
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
   const handleOpenTag = () => setOpenTag(true)
-  const handleCloseTag = () => setOpenTag(false)
+  const handleCloseTag = () => {
+    setOpenTag([])
+
+    setOpenTag(false)
+  }
 
   const handleOpenSearchTag = () => setOpenSearchTag(true)
-  const handleCloseSearchTag = () => setOpenSearchTag(false)
+  const handleCloseSearchTag = () => {
+    setOpenSearchTag(false)
+    setOpenSearchTag([])
+  }
 
   const [photos, setPhotos] = useState([])
   const [fileName, setSileName] = useState('')
@@ -39,7 +46,8 @@ const Home = () => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    maxWidth: 400,
+    width: '90vw',
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
@@ -110,7 +118,7 @@ const Home = () => {
   return (
     <div>
       <div className="search">
-        <span>絞り込み：</span>
+        <span className="search_label">絞り込み：</span>
         <div className="search-tag-list">
           {searchSelectedTags.map((searchSelectedTag, index) => {
             return (
@@ -191,7 +199,7 @@ const Home = () => {
           onChange={OnFileUpload}
         />
         <IconButton
-          sx={{ position: 'absolute', bottom: 16, right: 16 }}
+          sx={{ position: 'fixed', bottom: 16, right: 16 }}
           size="large"
           aria-label="upload picture"
           component="span"
