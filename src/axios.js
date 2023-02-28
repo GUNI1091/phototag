@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'http://153.120.138.130/api/v1',
+  baseURL: 'https://phototag.ddns.net/api/v1',
 })
 
 export default instance

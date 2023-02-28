@@ -60,6 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 10px 0;
 }
 
 .search-label {
@@ -75,6 +76,10 @@
   height: 40px;
   padding: 5px 10px;
   width: 500px;
+}
+
+.search-tag-list button {
+  margin: 0 10px;
 }
 
 .search-tag-list::-webkit-scrollbar {
