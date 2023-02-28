@@ -22,16 +22,11 @@ const Home = () => {
   const handleClose = () => setOpen(false)
   const handleOpenTag = () => setOpenTag(true)
   const handleCloseTag = () => {
-    setOpenTag([])
-
     setOpenTag(false)
   }
 
   const handleOpenSearchTag = () => setOpenSearchTag(true)
-  const handleCloseSearchTag = () => {
-    setOpenSearchTag(false)
-    setOpenSearchTag([])
-  }
+  const handleCloseSearchTag = () => setOpenSearchTag(false)
 
   const [photos, setPhotos] = useState([])
   const [fileName, setSileName] = useState('')
@@ -90,6 +85,7 @@ const Home = () => {
       console.log(response.data)
       setPhotos(response.data.photos)
       handleCloseSearchTag()
+      setOpenSearchTag([])
     })
   }
 
@@ -271,7 +267,13 @@ const Home = () => {
           </button>
         </Box>
       </Modal>
-      <Modal open={opentag} onClose={handleCloseTag}>
+      <Modal
+        open={opentag}
+        onClose={() => {
+          handleCloseTag()
+          setOpenTag([])
+        }}
+      >
         <Box sx={modal_style}>
           <AddTag
             getTags={() => {
