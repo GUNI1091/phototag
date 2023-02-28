@@ -1,24 +1,10 @@
-import { useEffect, useState } from "react";
-import Tag from "./Tag";
+import { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import axios from "../axios";
 
-const AddTag = () => {
+const AddTag = ({ getTags }) => {
   const [inputText, setInputText] = useState("");
-  const [tags, setTags] = useState([]);
-
-  const getTags = () => {
-    axios.get("/tags?user_id=12345").then((response) => {
-      console.log(response.data);
-      setTags(response.data.tags);
-    });
-  };
-
-  useEffect(() => {
-    getTags();
-  }, []);
-
   const handleAddTag = () => {
     axios
       .post("/tags?user_id=12345", {
@@ -46,20 +32,6 @@ const AddTag = () => {
           追加
         </Button>
       </Stack>
-      <ul style={{ listStyle: "none" }}>
-        {tags.map((item, index) => {
-          return (
-            <li key={index}>
-              <Tag
-                content={item.name}
-                index={index}
-                tags={tags}
-                setTags={setTags}
-              />
-            </li>
-          );
-        })}
-      </ul>
     </div>
   );
 };

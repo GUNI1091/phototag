@@ -11,12 +11,16 @@ import "react-native-get-random-values";
 import { v4 as uuidv4 } from "uuid";
 import axios from "../axios";
 import { borderRadius } from "@mui/system";
+import AddTag from "./AddTag";
 
 const Home = () => {
   const [uploadImageUrl, setUploadImageUrl] = useState("");
   const [open, setOpen] = React.useState(false);
+  const [opentag, setOpenTag] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleOpenTag = () => setOpenTag(true);
+  const handleCloseTag = () => setOpenTag(false);
 
   const [photos, setPhotos] = useState([]);
   const [fileName, setSileName] = useState("");
@@ -37,17 +41,6 @@ const Home = () => {
     alignItems: "center",
     justifyContent: "center",
     borderRadius: "10px",
-  };
-
-  const modal_taglist_style = {
-    margin: 2,
-    width: "100%",
-    height: "100px",
-    overflow: "hiddon",
-    display: "flex",
-    backgroundColor: "#f3f3f3",
-    p: 1.5,
-    borderRadius: 2,
   };
 
   const Input = styled("input")({
@@ -133,7 +126,15 @@ const Home = () => {
       >
         <Box sx={modal_style}>
           <img src={uploadImageUrl} width="200px" className="modal_image" />
-          <Box sx={modal_taglist_style}>
+          <Box className="modal_taglist_style">
+            <button
+              className="tag_add_button"
+              onClick={() => {
+                handleOpenTag();
+              }}
+            >
+              +
+            </button>
             {tags.map((item, index) => {
               return (
                 <Box
@@ -179,7 +180,16 @@ const Home = () => {
           >
             UpLoad
           </button>
-          <button onClick={() => {}}>+</button>
+        </Box>
+      </Modal>
+      <Modal open={opentag} onClose={handleCloseTag}>
+        <Box sx={modal_style}>
+          <AddTag
+            getTags={() => {
+              getTags();
+              handleCloseTag();
+            }}
+          />
         </Box>
       </Modal>
     </div>
