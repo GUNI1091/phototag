@@ -13,17 +13,8 @@ function App() {
         <Typography variant="h6" color="inherit">
           PhoTag
         </Typography>
-        <ul>
-          <Link to="/">/HOME</Link>
-          <Link to="/Tag">/Tag List</Link>
-        </ul>
       </AppBar>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Tag" element={<Tag />} />
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
+      <Home />
     </div>
   );
 }
