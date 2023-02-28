@@ -1,0 +1,39 @@
+.modal_image {
+  border-radius: 10px;
+}
+
+.image_upload_button {
+  border-radius: 5px;
+  background-color: rgb(100, 136, 255);
+  color: white;
+  padding: 5px 10px;
+  user-select: none;
+}
+
+.image_upload_button:hover {
+  box-shadow: none;
+  transition-duration: 0.2s;
+  transform: translateY(1.5px);
+}
+
+.modal_tag {
+  border-radius: 7px;
+  border: 1px solid;
+  border-color: #799cff;
+  padding: 0px 7px;
+  margin: 0 2px;
+  height: fit-content;
+  user-select: none;
+}
+
+.selectedStyle {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(136, 167, 255);
+}
+
+.defaultStyle {
+  cursor: pointer;
+  color: rgb(87, 132, 255);
+  font-weight: 400;
+}
