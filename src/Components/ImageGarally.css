@@ -56,6 +56,36 @@
   border-radius: 100px;
 }
 
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-label {
+  width: fit-content;
+}
+
+.search-tag-list {
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 40px;
+  padding: 5px 10px;
+  width: 500px;
+}
+
+.search-tag-list::-webkit-scrollbar {
+  height: 1px;
+}
+
+.search-tag-list::-webkit-scrollbar-thumb {
+  background-color: rgb(183, 183, 183);
+  border-radius: 100px;
+}
+
 .tag {
   border-radius: 7px;
   border: 1px solid;
